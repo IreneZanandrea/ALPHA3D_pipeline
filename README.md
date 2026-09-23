@@ -13,7 +13,11 @@ __Journal:__ NA
 
 __Year:__ NA  
 
-__Abstract:__ TBA
+__Abstract:__ 
+1.	Phenotypic variation is produced through the interactions between genotype and environment. Despite its importance, our ability to characterize phenomes still remains behind our ability to characterize genomes. There is therefore an urgency to develop techniques that enable the rapid and efficient acquisition of high-dimensional phenotypic data. Traditionally landmarks have been collected manually and in two dimensions, but these two phenotyping bottlenecks have recently been addressed by the availability of 3D technologies and the advent of automated landmark-placement methods.
+2.	In this study, we introduce the phenomic pipeline Automated Landmarking and Photogrammetry Acquisition in 3D (ALPHA3D) that combines photogrammetry (a fast, portable and cheap way to create 3D models) with automated landmark placement. This highly automated pipeline is designed to rapidly acquire traits. Its speed enables a faster measurement of morphological structures such as the mammalian cranium, including those of polar bears (Ursus maritimus) used in this study. With ALPHA3D, it takes approximately 20 minutes to progress from photographing a skull to obtain a fully automatically annotated 3D model. We assessed the measurement error (imprecision and bias) of ALPHA3D in extracting size (measured as centroid size), and linear measurements. 
+3.	The results showed that photographing and making of the 3D model did not contribute significantly to measurement error. Automated landmarking accounted for most of the error introduced by the pipeline but was for the most part negligible relative to the biological (true) variance among the specimens. We quantified imprecision as the pairwise variance between two measurements (σ2), which approximates the relative measurement error. The mean σ2 across all linear distances was found low, at 0.13%. We detect negligible bias for most traits. Lastly we found a strong correlation between P-matrices obtained manually (PML) and automatically (PAL), confirming the close agreement between results from ALPHA3D and from manual landmarking. 
+4.	Overall, our results show how ALPHA3D can be used as a rapid, unbiased and precise phenotyping tool to extract morphological traits from mammalian skulls.
 
 __Info:__ This repository contains scripts and data used for analyses in the publication.
 
