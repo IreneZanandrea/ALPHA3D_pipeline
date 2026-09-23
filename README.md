@@ -1,5 +1,5 @@
 # Rapid, unbiased and precise phenotyping using the ALPHA3D pipeline
-A toolset for extracting in a fast and efficient way phenotypic traits. Processing automated and manual landmarks. Calculate precision, bias and accuracy of the pipeline. Apply quantitative genetics method to the dataset.
+A pipeline for extracting in a fast and efficient way phenotypic traits. Processing automated and manual landmarks. Calculate precision, bias and accuracy of the pipeline. Apply quantitative genetics method to the dataset.
 
 __Article:__ Unpublished
 
