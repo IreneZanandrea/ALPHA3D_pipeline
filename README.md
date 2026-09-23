@@ -5,7 +5,7 @@ __Article:__ Unpublished
 
 __Authors:__ Irene Zanandrea<sup>1†</sup> and Kjetil Lysne Voje<sup>1</sup>
 
-__Affiliation:__ <sup>1</sup>Evolution and Paleobiology, Natural History Museum, University of Oslo
+__Affiliation:__ <sup>1</sup>Evolution and Paleobiology, Natural History Museum, University of Oslo, 0562, Oslo
 
 __Contact:__ <sup>†</sup>irene.zanandrea@nhm.uio.no
 
