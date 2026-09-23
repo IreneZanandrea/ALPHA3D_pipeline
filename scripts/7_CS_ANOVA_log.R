@@ -1,7 +1,7 @@
 ##########################################################
 ##   Automatizing phenomic research: ALPHA3D pipeline   ##
 ##                                                      ##
-##           CS CALCULATIONS and ANOVAS                 ## 
+##           CS CALCULATIONS and ANOVA                  ## 
 ##                                                      ##
 ##                  Irene Zanandrea                     ##
 ##########################################################
@@ -15,14 +15,8 @@ source("./scripts/list_nested_anova.R")
 source("./scripts/imprecision_2nd_part_pipeline")
 
 
-
-
 #Nested ANOVA on CS: 
 #analysis of size  -> compute CS as the response.
-
-#Procrustes ANOVA: 
-#analysis of shape coordinates -> the response is the Procrustes coordinates.
-
 
 
 #-------------------------------------
@@ -290,64 +284,6 @@ final_ANOVA <- data.frame(
 final_ANOVA
   
   
-
-
-
-
-#--------------------------------
-#     PROCRUSTES ANOVA
-#--------------------------------
-
-# In the procrustes ANOVA I study the variation in landmark positions 
-    
-#Combine all the coordinates into one big 3D array (34×3×256)
-coords_all <- abind(coord_array_foto1_ts1,
-                    coord_array_foto1_ts2,
-                    coord_array_foto1bis_ts1,
-                    coord_array_foto1bis_ts2,
-                    coord_array_foto2_ts1,
-                    coord_array_foto2_ts2,
-                    coord_array_foto2bis_ts1,
-                    coord_array_foto2bis_ts2,
-                    along = 3)
-dim(coords_all) # should be: 34 3 272
- 
-#### Generalized Procrustes Analysis (GPA)
-#library(geomorph)
-#gpagen: performs the generalized Procrustes superimposition,
-         #centers, scales, rotates,
-         #outputs Procrustes shape coordinates and centroid size.
-gpa_all <- gpagen(coords_all)  #gpagen takes landmarks and performs a GPA
-str(gpa_all)  # $coords:Procrustes coordinates (shape).
-              # $Csize:centroid size for each specimen.
-              # $p, $k, $n: number of landmarks, dimensions, specimens.
-
-plot(gpa_all)             # SUPER COOL 3D visual check of the superimposition
-
-Csize   <- gpa_all$Csize
-#If I want to check distribution of centroid size
-hist(Csize,
-     breaks = 16, # più barre distanziate
-     col    = "lightblue",
-     border = "white",
-     main   = "Distribtion of Centroid size",
-     xlab   = "Centroid size",
-     ylab   = "Frequency")               
-
-# Extract Procrustes coordinates 
-  coords_all_gpa <- gpa_all$coords   # 34 x 3 x 256
-  
-#Procrustes ANOVA: procD.lm
-procr_anova <- procD.lm(coords_all_gpa ~
-                          id +                     # biological variation
-                          id:foto +                # error within each photoset
-                          id:foto:replicate,       # replicate error
-                        data = df,                 # the residuals are the ts!!!
-                        iter = 10000, turbo = TRUE)# permutation tests (I chose 1000 permutations)
-summary(procr_anova)
-
-
-
 
 
 #---------------------------
