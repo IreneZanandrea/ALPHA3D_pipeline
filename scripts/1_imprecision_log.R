@@ -217,7 +217,7 @@ log_combined_df_long <- log_combined_df_long %>%
 ggplot(log_combined_df_long, 
        aes(x = TraitOrdinal, y = Variance, color = Imprecision)) +
       geom_boxplot(aes(fill = Imprecision), alpha = 0.5) +
-      labs(x = "Linear Measurements", y = "Logged Variance (%)",color = "Imprecision") +
+      labs(x = "Linear Measurements", y = "Log-scale pairwise variance",color = "Imprecision") +
       # defining manual colors and legend labels
       #1- colors for the LEGEND
       scale_fill_manual(name   = "Imprecision",       #Sets the legend title to "Imprecision"
