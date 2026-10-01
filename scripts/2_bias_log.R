@@ -114,6 +114,7 @@ auto_landmarks_array <- lapply(auto.list, process_json, landmarks_n = 34, coord_
 ### 1- calculate differences for traits for each cranium between auto and manual
 diff_auto_man <- bias_function(log_auto_distances_df, log_manual_distances_df)
 names(diff_auto_man) <- gsub("_mean$", "", names(diff_auto_man))#remove "_mean" from columns
+#I obtain a datasetwith differences on a log-scale
 ### 2- long format
 diff_long <- diff_auto_man %>%  
               pivot_longer(cols = -ID,  names_to = "Trait",  
