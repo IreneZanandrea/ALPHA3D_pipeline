@@ -327,7 +327,7 @@ ggplot(imprecision_long, aes(x = TraitOrdinal, y = Variance, color = Imprecision
       geom_boxplot(aes(fill = Imprecision), alpha = 0.5) +
       labs(title = "Comparison of imprecision between manual and automated landmarking", 
            x = "Linear Measurements", 
-           y = "Logged Variance (%)", 
+           y = "Log-scale pairwise variance", 
            color = "Imprecision") +
       scale_fill_manual(name   = "Imprecision",
                         breaks = c("Variance_AL","Variance_ML"),
