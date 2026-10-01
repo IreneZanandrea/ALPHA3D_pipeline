@@ -122,13 +122,20 @@ diff_long <- diff_auto_man %>%
 diff_long$Trait <- gsub("_mean", "", diff_long$Trait)
 
 ### Table S.5 Mean bias analysis for each trait on a subset of 35 skulls. 
-column_means_1 <- round(
-  colMeans(diff_auto_man[ , -which(names(diff_auto_man) == "ID")],
-           na.rm = TRUE), 3)
-means_bias <- data.frame(Trait = names(column_means_1), 
-                         Mean = column_means_1)
-means_bias$Trait <- factor(means_bias$Trait,levels = order_traits)
+#I calculate the mean for every column(trait)
+column_means_1 <- colMeans(  
+  diff_auto_man[, setdiff(names(diff_auto_man), "ID")], #I exclude the column ID
+  na.rm = TRUE)
+#I build a df for the avarage of each trait bias
+means_bias <- data.frame( 
+  Trait = names(column_means_1),
+  Mean = round(column_means_1, 3))
+#I order it so that the trait are in my order
+means_bias <- mutate(means_bias,  
+  Trait = factor(Trait, levels = order_traits))
+means_bias <- arrange(means_bias, Trait)
 #write_csv(means_bias, "bias_log.csv")
+
 
 ### Table S.7 Mean bias SQUARED
 column_means_squared <- round(colMeans(
