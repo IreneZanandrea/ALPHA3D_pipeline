@@ -63,7 +63,7 @@ log_foto1_distances_df$ID <- gsub("-foto1", "", log_foto1_distances_df$ID)
 ######  FOTOEXTRA (FOTO1 TS2)    ---------------
 
 fotoextra.list <- list.files(path = "./data/landmarks_ml_vs_al/0_AL2",
-                             pattern = "\\.json",full.names = TRUE, recursive = TRUE) 
+                             full.names = TRUE, recursive = TRUE) 
 fotoextra.append = "-fotoextra"
 fotoextra_landmarks_array <- lapply(fotoextra.list, process_json,landmarks_n = 34,  coord_n = 3)
 # extract BILATERAL traits 
