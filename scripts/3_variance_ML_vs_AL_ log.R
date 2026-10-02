@@ -20,7 +20,7 @@ source("./scripts/landmarks_traits.R")
 
 ######  FOTO 1 TS1   ---------------
 
-foto1.list <- list.files(path = "./landmark_ml_vs_al/0_AL1",
+foto1.list <- list.files(path = "./data/landmarks_ml_vs_al/0_AL1",
                          full.names = TRUE, recursive = TRUE) 
 foto1.append = "-foto1"       
 foto1_landmarks_array <- lapply(foto1.list, process_json, landmarks_n = 34, coord_n = 3)
@@ -62,7 +62,7 @@ log_foto1_distances_df$ID <- gsub("-foto1", "", log_foto1_distances_df$ID)
 
 ######  FOTOEXTRA (FOTO1 TS2)    ---------------
 
-fotoextra.list <- list.files(path = "./landmark_ml_vs_al/0_AL2",
+fotoextra.list <- list.files(path = "./data/landmarks_ml_vs_al/0_AL2",
                              pattern = "\\.json",full.names = TRUE, recursive = TRUE) 
 fotoextra.append = "-fotoextra"
 fotoextra_landmarks_array <- lapply(fotoextra.list, process_json,landmarks_n = 34,  coord_n = 3)
@@ -109,7 +109,7 @@ log_fotoextra_distances_df$ID <- gsub("-fotoextra", "", log_fotoextra_distances_
 
 ######  ML 1st ROUND ML    ------------
 
-manual1.list <- list.files(path = "./landmark_ml_vs_al/1_ML1",
+manual1.list <- list.files(path = "./data/landmarks_ml_vs_al/1_ML1",
                            full.names = TRUE,recursive = TRUE) 
 manual1.append = "-manual1" 
 manual1_landmarks_array <- lapply(manual1.list, process_json, 
@@ -152,7 +152,7 @@ log_manual1_distances_df$ID <- gsub("-manual1", "", log_manual1_distances_df$ID)
 
 ######  ML 2nd ROUND ML    ------------
 
-manual2.list <- list.files(path = "./landmark_ml_vs_al/1_ML2",
+manual2.list <- list.files(path = "./data/landmarks_ml_vs_al",
                            full.names = TRUE, recursive = TRUE) 
 manual2.append = "-manual2"
 manual2_landmarks_array <- lapply(manual2.list, process_json,landmarks_n = 34, coord_n = 3)
